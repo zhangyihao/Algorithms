@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
+	/**
+	 * 大数下沉
+	 * @param array
+	 */
 	public void sort(int[] array) {
 		//控制总共循环次数
 		for(int i=1; i<=array.length; i++) {
@@ -18,6 +22,10 @@ public class BubbleSort {
 		}
 	}
 	
+	/**
+	 * 小数上浮
+	 * @param array
+	 */
 	public void sort2(int[] array) {
 		for(int i=1; i<=array.length; i++) {
 			for(int j=array.length-1; j>=i; j--) {
