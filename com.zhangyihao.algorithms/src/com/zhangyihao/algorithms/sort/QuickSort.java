@@ -19,6 +19,7 @@ public class QuickSort {
 		int j = end;
 		while (i < j) {
 			while (i < j) {
+				//从后往前依次查找，直到找到一个小于基准值的数
 				if (k > array[j]) {
 					array[i] = array[j];
 					i++;
@@ -27,6 +28,7 @@ public class QuickSort {
 				j--;
 			}
 			while (i < j) {
+				//从前往后依次查找，直到找到一个大于基准值的数，
 				if (k < array[i]) {
 					array[j] = array[i];
 					j--;
