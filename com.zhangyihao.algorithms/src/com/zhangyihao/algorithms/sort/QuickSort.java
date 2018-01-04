@@ -88,7 +88,7 @@ public class QuickSort {
 				a[j] = t;
 			}
 		}
-		// 最终将基准数归位
+		// 最终将基准数归位，每次循环结束的时候，指向的元素一定是比基准值小的
 		a[left] = a[i];
 		a[i] = temp;
 
