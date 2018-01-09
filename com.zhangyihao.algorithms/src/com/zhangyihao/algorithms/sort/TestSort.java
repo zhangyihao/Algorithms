@@ -16,7 +16,10 @@ public class TestSort {
 //		System.out.println(Arrays.toString(new SelectSort().sort(array)));
 //		System.out.println(Arrays.toString(new HeapSort().sort(array)));
 		
-		new HeapSort2().sort(array);
+//		new HeapSort2().sort(array);
+		
+//		System.out.println(Arrays.toString(new InsertSort().sort(array)));
+		System.out.println(Arrays.toString(new MergeSort().sort(array)));
 	}
 
 }

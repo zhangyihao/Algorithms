@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class HeapSort2 {
 	private static void adjustHeat(int[] array, int parent, int length) {
-		// temp保存当前父节点
+		// parentValue保存当前父节点
 		int parentValue = array[parent];
 		// 先选取左结点为大结点
 		int maxChild = 2 * parent + 1;
