@@ -15,9 +15,9 @@ public class MergeSort {
 		}
 		int middle = (start + end)/2;
 		System.out.println("分："+Arrays.toString(array)+start+","+middle+","+end);
-		mergeSort(array, start, middle);
+		mergeSort(array, start, middle); //对分割后的序列排序
 		mergeSort(array, middle+1, end);
-		merge(array, start, middle, end);
+		merge(array, start, middle, end); //合并两个序列
 	}
 	
 	private void merge(int[] array, int start, int middle, int end) {
@@ -27,6 +27,7 @@ public class MergeSort {
 		int index1 = start;
 		int index2 = middle+1;
 		
+		//依次比较两个序列中的首元素，将小的赋值到新的序列中
 		while(index1<=middle && index2<=end) {
 			if(array[index1]<=array[index2]) {
 				newArray[newIndex] = array[index1];
@@ -38,6 +39,7 @@ public class MergeSort {
 			newIndex++;
 		}
 		
+		//将两个序列中剩余的元素一次赋值到新序列中
 		while(index1<=middle) {
 			newArray[newIndex] = array[index1];
 			index1++;
