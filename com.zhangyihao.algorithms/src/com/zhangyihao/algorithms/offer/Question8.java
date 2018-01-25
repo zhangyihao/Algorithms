@@ -16,9 +16,10 @@ public class Question8 {
 		
 		int index1 = 0;
 		int index2 = array.length-1;
-		int midIndex = -1;
+		int midIndex = index1;
 		
-		while(index1 < index2) {
+		//如index1 指向的元素小于 index2指向的元素，则数组已经是排序数组，直接返回midIndex
+		while(array[index1] >= array[index2]) {
 			if(index2 - index1 == 1) {
 				midIndex = index2;
 				break;
@@ -26,6 +27,7 @@ public class Question8 {
 			
 			midIndex = (index1 + index2)/2;
 			
+			//中间元素等于起始元素，等于末尾元素，应顺序查找
 			if(array[index1] == array[midIndex] && array[index2] == array[midIndex]) {
 				return findInOrder(array, index1, index2);
 			} else if (array[index1] <= array[midIndex]) {
@@ -55,7 +57,8 @@ public class Question8 {
 	public static void main(String[] args) {
 //		int[] array = {3,4,5,1,2};
 //		int[] array = {1,0,1,1,1};
-		int[] array = {1,1,1,0,1};
+//		int[] array = {1,1,1,0,1};
+		int[] array = {1, 2, 3, 4, 5};
 		System.out.println(new Question8().minNumberInRotateArray(array));
 	}
 
