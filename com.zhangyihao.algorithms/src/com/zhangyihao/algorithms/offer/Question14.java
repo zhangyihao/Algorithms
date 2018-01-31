@@ -14,14 +14,17 @@ public class Question14 {
         int end = array.length-1;
         
         while(start < end) {
+        	//找到一个偶数
         	while((array[start] & 1) != 0) {
         		start++;
         	}
         	
+        	//找到一个奇数
         	while((array[end] & 1) ==0) {
         		end--;
         	}
         	
+        	//交换奇偶数
         	if(start < end) {
         		int temp = array[start];
         		array[start] = array[end];
@@ -34,6 +37,7 @@ public class Question14 {
 	public void reOrderArray(int[] array) {
 		for(int i=0; i<array.length; i++) {
 			int index = i;
+			//找到一个奇数
 			while(index<array.length && (array[index] & 1) ==0) {
 				index++;
 			}
@@ -44,6 +48,7 @@ public class Question14 {
 			}
 			
 			int odd = array[index];
+			//将奇数之前的、i之后的元素向后移动一位
 			for(int start=index; start>i; start--) {
 				array[start] = array[start-1];
 			}
