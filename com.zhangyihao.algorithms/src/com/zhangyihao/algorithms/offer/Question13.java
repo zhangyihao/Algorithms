@@ -8,15 +8,6 @@ package com.zhangyihao.algorithms.offer;
  */
 public class Question13 {
 
-	class ListNode {
-		int value;
-		ListNode next;
-		
-		ListNode(int val) {
-			this.value = val;
-		}
-	}
-	
 	public ListNode deleteNode(ListNode head, ListNode delNode) {
 		if(head == null || delNode == null) {
 			return null;
@@ -48,10 +39,10 @@ public class Question13 {
 	public static void main(String[] args) {
 		Question13 q = new Question13();
 		
-		ListNode node1 = q.new ListNode(1);
-		ListNode node2 = q.new ListNode(2);
-		ListNode node3 = q.new ListNode(3);
-		ListNode node4 = q.new ListNode(4);
+		ListNode node1 = new ListNode(1);
+		ListNode node2 = new ListNode(2);
+		ListNode node3 = new ListNode(3);
+		ListNode node4 = new ListNode(4);
 		
 		node1.next = node2;
 		node2.next = node3;
@@ -59,24 +50,15 @@ public class Question13 {
 		node4.next = null;
 
 		//删除中间结点
-		q.printList(q.deleteNode(node1, node3));
+		ListNode.printList(q.deleteNode(node1, node3));
 		//删除尾结点
-//		q.printList(q.deleteNode(node1, node4));
+//		ListNode.printList(q.deleteNode(node1, node4));
 		
 //		node1.next = null;
-//		q.printList(q.deleteNode(node1, node1));
+//		ListNode.printList(q.deleteNode(node1, node1));
 	}
 	
-	private void printList(ListNode head) {
-		ListNode cur = head;
-		while(cur!=null) {
-			System.out.print(cur.value);
-			cur = cur.next;
-			if(cur!=null) {
-				System.out.print("->");
-			}
-		}
-	}
+	
 
 }
 

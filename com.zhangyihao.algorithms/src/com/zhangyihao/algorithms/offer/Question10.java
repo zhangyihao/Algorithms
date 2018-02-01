@@ -24,7 +24,7 @@ public class Question10 {
 		 
 		 while(flag != 0) {
 			 //判断当前位置是否为1
-			 if(1 == (n & flag)) {
+			 if(flag == (n & flag)) {
 				 count++;
 			 }
 			 //对1进行左移操作
