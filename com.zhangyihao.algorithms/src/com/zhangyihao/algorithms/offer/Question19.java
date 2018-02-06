@@ -91,7 +91,6 @@ public class Question19 {
         
 		q19.Mirror(root);
 		TreeNode.preorderTraversal(root);
-		
 	}
 
 }

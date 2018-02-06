@@ -44,7 +44,6 @@ public class TreeNode {
 		if(node == null) {
 			return;
 		}
-		
 		postorderTraversal(node.left);
 		postorderTraversal(node.right);
 		System.out.print(node.val+",");

@@ -1,8 +1,6 @@
 package com.zhangyihao.algorithms.offer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * 顺时针打印矩阵
