@@ -1,3 +1,6 @@
 .DS_Store
 bin/*
 *.class
+.idea/
+target/
+*.iml
