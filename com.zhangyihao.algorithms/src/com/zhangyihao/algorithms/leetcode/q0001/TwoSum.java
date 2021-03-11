@@ -1,4 +1,4 @@
-package com.zhangyihao.algorithms.leetcode;
+package com.zhangyihao.algorithms.leetcode.q0001;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +36,15 @@ public class TwoSum {
         return null;
     }
 
+    /**
+     * 时间复杂度为 O(n)
+     * @param nums 数组
+     * @param target 结果
+     * @return 结果
+     */
     private int[] towSum2(int[] nums, int target) {
         int len = nums.length;
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>(len);
+        Map<Integer, Integer> map = new HashMap<>(len);
         for(int i=0; i<len; i++) {
             int complement = target - nums[i];
             if(map.containsKey(complement)) {
