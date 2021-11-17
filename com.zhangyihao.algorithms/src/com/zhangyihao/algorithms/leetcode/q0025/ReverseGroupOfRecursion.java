@@ -9,18 +9,24 @@ import java.util.StringJoiner;
 public class ReverseGroupOfRecursion {
 
     public static void main(String[] args) {
-        int i = 10;
-        ListNode head = null;
-        while (i > 0) {
-            head = new ListNode(i, head);
-            i--;
-        }
+        ListNode head = ReverseGroupOfRecursion.buildList(10);
         ReverseGroupOfRecursion t = new ReverseGroupOfRecursion();
-        System.out.println(t.printListNode(head));
-        System.out.println(t.printListNode(t.reverseKGroup(head, 7)));
+        System.out.println(ReverseGroupOfRecursion.printListNode(t.reverseKGroup(head, 7)));
     }
 
-    private String printListNode(ListNode head) {
+    public static ListNode buildList(int count) {
+        ListNode head = null;
+        while (count > 0) {
+            head = new ListNode(count, head);
+            count--;
+        }
+        if (head != null) {
+            System.out.println(ReverseGroupOfRecursion.printListNode(head));
+        }
+        return head;
+    }
+
+    public static String printListNode(ListNode head) {
         StringJoiner joiner = new StringJoiner(" -> ");
         do {
             joiner.add(String.valueOf(head.val));
