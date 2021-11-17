@@ -5,8 +5,8 @@ package com.zhangyihao.algorithms.leetcode.q0025;
  * @author zhangyihao
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode() {
     }
