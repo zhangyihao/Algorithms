@@ -10,91 +10,56 @@ import java.util.Arrays;
  */
 public class QuickSort {
 
-	public static int[] sort(int[] array, int start, int end) {
-		if (start < 0 || end > array.length - 1) {
-			return array;
-		}
-		int k = array[start];
-		int i = start;
-		int j = end;
-		while (i < j) {
-			while (i < j) {
-				//从后往前依次查找，直到找到一个小于基准值的数
-				if (k > array[j]) {
-					array[i] = array[j];
-					i++;
-					break;
-				}
-				j--;
-			}
-			while (i < j) {
-				//从前往后依次查找，直到找到一个大于基准值的数，
-				if (k < array[i]) {
-					array[j] = array[i];
-					j--;
-					break;
-				}
-				i++;
-			}
-			
-//			while(i<j && k<=array[j]) {
-//				j--;
-//			}
-//			if(i<j) {
-//				array[i] = array[j];
-//				i++;
-//			}
-//			
-//			while(i<j && k>=array[i]) {
-//				i++;
-//			}
-//			if(i<j) {
-//				array[j] = array[i];
-//				j--;
-//			}
-		}
-		array[i] = k;
-		System.out.println(Arrays.toString(array));
-		if (start < i - 1) {
-			sort(array, start, i - 1);
-		}
-		if (i + 1 < end) {
-			sort(array, i + 1, end);
-		}
+	public static void main(String[] args) {
+		QuickSort sort = new QuickSort();
+		System.out.println(Arrays.toString(sort.sort(new int[]{ 5, 1, 1, 2, 0, 0, 3, 1 })));
+//		System.out.println(Arrays.toString(sort.sort(new int[]{ 2, 3})));
+	}
+
+	public int[] sort(int[] array) {
+		this.sort(array, 0, array.length - 1);
 		return array;
 	}
 
-	public static int[] quicksort(int[] a, int left, int right) {
-		int i, j, t, temp;
-		if (left >= right)
-			return a;
-
-		temp = a[left];
-		i = left;
-		j = right;
-		while (i != j) {
-			// 顺序很重要，要先从右边开始找
-			while (a[j] >= temp && i < j) {
-				j--;
-			}
-			// 再找右边的
-			while (a[i] <= temp && i < j) {
-				i++;
-			}
-			// 交换两个数在数组中的位置
-			if (i < j) {
-				t = a[i];
-				a[i] = a[j];
-				a[j] = t;
-			}
+	private void sort(int[] array, int start, int end) {
+		if (start >= end) {
+			return;
 		}
-		// 最终将基准数归位，每次循环结束的时候，指向的元素一定是比基准值小的
-		a[left] = a[i];
-		a[i] = temp;
 
-		quicksort(a, left, i - 1);// 继续处理左边的，这里是一个递归的过程
-		quicksort(a, i + 1, right);// 继续处理右边的 ，这里是一个递归的过程
-		return a;
+		int base = array[start];
+		int low = start;
+		int high = end;
+
+		while(true) {
+			// 从右侧开始，找到第一个比基数小的数
+			while (low < high && array[high] > base) {
+				high--;
+			}
+			// 从左开始，找到第一个比基数大的数
+			while (low < high && array[low] <= base) {
+				low++;
+			}
+			// 如果指针相遇，说明
+			if (low >= high) {
+				break;
+			}
+			// 交换两个数
+			swap(array, low, high);
+		}
+		this.swap(array, start, low);
+
+		this.sort(array, start, low - 1);
+		this.sort(array, low + 1, end);
 	}
+
+	private void swap(int[] array, int i, int j) {
+		if (i == j) {
+			return;
+		}
+		int tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+	}
+
 
 }
