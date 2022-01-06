@@ -17,8 +17,11 @@ public class Lee121MaxProfit {
 
     public static void main(String[] args) {
         Lee121MaxProfit t = new Lee121MaxProfit();
-        System.out.println(t.maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(t.maxProfit2(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(t.maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(t.maxProfit3(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(t.maxProfit3(new int[]{10, 2, 20, 1, 3}));
+        System.out.println(t.maxProfit3(new int[]{1, 2}));
+        System.out.println(t.maxProfit3(new int[]{2, 1}));
     }
 
     /**
@@ -49,7 +52,7 @@ public class Lee121MaxProfit {
     }
 
     /**
-     * 动态规划解法-2， 在解法 1 的基础上，使用"备忘录"方式，优化空间复杂度
+     * 动态规划解法 1-2， 在解法 1 的基础上，使用"备忘录"方式，优化空间复杂度
      * @param prices 股票价格
      * @return 最大利润
      */
@@ -62,6 +65,33 @@ public class Lee121MaxProfit {
             dpLast1 = Math.max(dpLast1, -price);
         }
         return dpLast0;
+    }
+
+    /**
+     * 动态规划解法 2-1，另外一种动态规划
+     * @param prices 股票价格
+     * @return 最大利润
+     */
+    public int maxProfit3(int[] prices) {
+        // 状态：天数、历史最低价格
+        // 选择：是否卖出
+        // 状态专业方程：dp[n] = min(dp[n - 1], price[n])，表示天数
+        // base case: dp[-1] = -无穷大
+        int maxProfit = 0;
+        int dpLast = prices[0];
+        int profit;
+        for (int i = 1; i < prices.length; i++) {
+            // 如果当天选择卖出，利润是否是当前最大的
+            profit = prices[i] - dpLast;
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+            // 状态转移，记录历史最低价格
+            if (prices[i] < dpLast) {
+                dpLast = prices[i];
+            }
+        }
+        return maxProfit;
     }
 
 }
