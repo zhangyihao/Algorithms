@@ -26,11 +26,14 @@ public class ValidQuot20 {
         for (int i = 0, size = s.length(); i < size; i++) {
             ch = s.charAt(i);
             if (ch == '(' || ch == '{' || ch == '[') {
-                stack.push(ch);ªª
+                // 开始符号，入栈
+                stack.push(ch);
             } else if (stack.isEmpty()) {
+                // 如果我空，则不匹配
                 return false;
             } else {
                 topCh = stack.peek();
+                // 比较栈顶，匹配则出栈。不匹配，则字符串无效
                 if ((topCh == '(' && ch == ')') || (topCh == '[' && ch == ']') || (topCh == '{' && ch == '}')) {
                     stack.pop();
                 } else {
@@ -38,17 +41,18 @@ public class ValidQuot20 {
                 }
             }
         }
+        // 如果栈为空则字符串有效
         return stack.isEmpty();
     }
 
     public static void main(String[] args) {
         ValidQuot20 t = new ValidQuot20();
-//        System.out.println(t.isValid("()"));
-//        System.out.println(t.isValid("()[]{}"));
-//        System.out.println(t.isValid("(]"));
-//        System.out.println(t.isValid("([)]"));
-//        System.out.println(t.isValid("{[]}"));
-//        System.out.println(t.isValid("({{{{}}}))"));
+        System.out.println(t.isValid("()"));
+        System.out.println(t.isValid("()[]{}"));
+        System.out.println(t.isValid("(]"));
+        System.out.println(t.isValid("([)]"));
+        System.out.println(t.isValid("{[]}"));
+        System.out.println(t.isValid("({{{{}}}))"));
         System.out.println(t.isValid("(])"));
     }
 
