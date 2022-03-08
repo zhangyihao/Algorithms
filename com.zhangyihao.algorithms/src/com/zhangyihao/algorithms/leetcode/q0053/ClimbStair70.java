@@ -12,7 +12,7 @@ package com.zhangyihao.algorithms.leetcode.q0053;
  * @date 2022/3/8
  */
 public class ClimbStair70 {
-ª
+
     public int climbStairs(int n) {
         // 状态：n 台阶数
         // 选择：1阶、2 阶
@@ -32,6 +32,22 @@ public class ClimbStair70 {
             dpn2 = dpn;
         }
         return dpn;
+    }
+
+    /**
+     * 变种：逢 7 的楼梯不能上，即第 7、14、21... 阶台阶不能上
+     * @param n 台阶数
+     */
+    public void climbStairs2(int n) {
+        // 思路： n -1 或 n - 2 % 7 == 0 时，dp[n-1] 或 dp[n - 2] 等于 0
+    }
+
+    /**
+     * 变种：输出所有路径
+     * @param n 台阶数
+     */
+    public void climbStair3(int n) {
+        // 思路：递归构造以第 n 阶台阶为根节点的二叉树，反向输出二叉树的每条路径
     }
 
     public static void main(String[] args) {
