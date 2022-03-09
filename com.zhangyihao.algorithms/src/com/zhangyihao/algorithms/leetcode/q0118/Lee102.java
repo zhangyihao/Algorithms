@@ -1,5 +1,7 @@
 package com.zhangyihao.algorithms.leetcode.q0118;
 
+import com.zhangyihao.algorithms.leetcode.TreeNode;
+
 import java.util.*;
 
 /**
@@ -13,12 +15,12 @@ public class Lee102 {
     public static void main(String[] args) {
         Lee102 t = new Lee102();
 
-        TreeNode nodeL = t.new TreeNode(15, t.new TreeNode(16), t.new TreeNode(17));
-        TreeNode nodeR = t.new TreeNode(7, null, t.new TreeNode(8));
+        TreeNode nodeL = new TreeNode(15, new TreeNode(16), new TreeNode(17));
+        TreeNode nodeR = new TreeNode(7, null, new TreeNode(8));
 
-        TreeNode nodeR2 = t.new TreeNode(20, nodeL, nodeR);
+        TreeNode nodeR2 = new TreeNode(20, nodeL, nodeR);
 
-        TreeNode root = t.new TreeNode(3, t.new TreeNode(9), nodeR2);
+        TreeNode root = new TreeNode(3, new TreeNode(9), nodeR2);
 
         List<List<Integer>> result = t.levelOrder(root);
         System.out.println(Arrays.toString(result.toArray()));
@@ -61,23 +63,6 @@ public class Lee102 {
     }
 
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
 }
